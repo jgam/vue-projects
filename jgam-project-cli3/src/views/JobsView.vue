@@ -6,16 +6,15 @@
 </template>
 
 <script>
-import {fetchList} from '../api/index';
+// import {fetchList} from '../api/index';
+import {mapGetters} from 'vuex';
 
 export default {
-    data(){
-        return {
-            jobs: []
-        }
-    },
     created(){
-        fetchList('jobs').then(response => this.jobs = response.data).catch(err => console.error(err))
+        this.$store.dispatch('FETCH_NEWS', {input: 'jobs'})
+    },
+    computed:{
+        ...mapGetters(['jobs'])
     }
 
 }
