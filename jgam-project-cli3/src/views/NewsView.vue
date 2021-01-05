@@ -6,7 +6,6 @@
 </template>
 
 <script>
-// import {fetchList} from '../api/index';
 import {mapGetters} from 'vuex';
 
 export default {
