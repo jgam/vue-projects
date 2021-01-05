@@ -1,22 +1,22 @@
 <template>
   <div>
       news
-      <div v-for="(user, index) in users" v-bind:key ="index">{{user}}</div>
+      <div v-for="(user, index) in this.news" v-bind:key ="index">{{user}}</div>
   </div>
 </template>
 
 <script>
-import {fetchList} from '../api/index';
+// import {fetchList} from '../api/index';
+import {mapGetters} from 'vuex';
 
 export default {
-    data() {
-        return{
-            users: []
-        }
-    },
     created(){
-        fetchList('news').then(response => this.users = response.data).catch(function(error){console.log(error)});
-    }
+        this.$store.dispatch('FETCH_NEWS', {input: 'news'})
+    },
+    computed:{
+        ...mapGetters(['news'])
+    },
+    
 }
 </script>
 
