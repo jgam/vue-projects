@@ -1,4 +1,4 @@
-import { fetchList } from '../api/index';
+import { fetchList, fetchQuestion, fetchUser } from '../api/index';
 
 const actions = {
   FETCH_NEWS(context, { input }) {
@@ -18,6 +18,16 @@ const actions = {
         console.log('false!');
       }
     });
+  },
+  FETCH_USER(context, { input }) {
+    fetchUser(input)
+      .then((response) => context.commit('SET_USER', response.data))
+      .catch((err) => console.log(err));
+  },
+  FETCH_QUESTION(context, { id }) {
+    fetchQuestion(id)
+      .then((response) => context.commit('SET_QUESTION', response.data))
+      .catch((err) => console.log(err));
   },
 };
 export default actions;

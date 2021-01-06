@@ -8,5 +8,11 @@ const mutations = {
   SET_ASKS(state, asks) {
     state.asks = asks;
   },
+  SET_USER(state, user) {
+    state.user = user;
+  },
+  SET_QUESTION(state, question) {
+    state.question = question;
+  },
 };
 export default mutations;
