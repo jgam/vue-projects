@@ -1,7 +1,13 @@
 <template>
   <div>
       ask
-      <div v-for="(ask, index) in this.asks" v-bind:key="index">{{ask}}</div>
+      <div class="ask" v-for="(ask, index) in this.asks" v-bind:key="index">
+          <div class="title">{{ask.title}}</div>
+          <div class="info">
+              <a v-bind:href="ask.url">go to Question</a>
+              <div class="times">{{ask.time_ago}}</div>
+          </div>
+      </div>
   </div>
 </template>
 
@@ -17,6 +23,21 @@ export default {
 }
 </script>
 
-<style>
+<style scoped>
+a{
+    text-decoration: none;
+    color: grey;
+}
+.ask{
+    padding: 10px;
+}
 
+.ask .title{
+    font-size: 20px
+}
+
+.ask .info{
+    display: flex;
+    justify-content: space-between;
+}
 </style>
