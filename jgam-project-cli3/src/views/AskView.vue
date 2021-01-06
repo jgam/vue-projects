@@ -4,7 +4,7 @@
       <div class="ask" v-for="(ask, index) in this.asks" v-bind:key="index">
           <div class="title">{{ask.title}}</div>
           <div class="info">
-              <a v-bind:href="ask.url">go to Question</a>
+              <a v-bind:href="`item/${ask.id}`">go to Question</a>
               <div class="times">{{ask.time_ago}}</div>
           </div>
       </div>
