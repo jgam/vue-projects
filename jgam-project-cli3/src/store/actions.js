@@ -8,14 +8,18 @@ const actions = {
         console.log('got in news');
         //   this.news = response.data;
         context.commit('SET_NEWS', response.data);
+        return response;
       } else if (input == 'ask') {
         //   this.state.asks = response.data;
         context.commit('SET_ASKS', response.data);
+        return response;
       } else if (input == 'jobs') {
         //   this.state.jobs = response.data;
         context.commit('SET_JOBS', response.data);
+        return response;
       } else {
         console.log('false!');
+        return response;
       }
     });
   },

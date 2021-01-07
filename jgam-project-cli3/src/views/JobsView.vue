@@ -21,10 +21,21 @@
 <script>
 // import {fetchList} from '../api/index';
 import {mapGetters} from 'vuex';
+import bus from '../utils/bus.js';
 
 export default {
     created(){
-        this.$store.dispatch('FETCH_NEWS', {input: 'jobs'})
+        bus.$emit('start:spinner');
+        setTimeout(() => {
+            this.$store.dispatch('FETCH_NEWS', {input: 'jobs'})
+                .then(() => {
+                    console.log('fetched!');
+                    bus.$emit('end:spinner');
+                    })
+                .catch(
+                    err => console.log(err)
+                );
+        }, 3000)
     },
     computed:{
         ...mapGetters(['jobs'])
