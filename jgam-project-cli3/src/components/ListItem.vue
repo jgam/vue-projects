@@ -32,10 +32,11 @@ export default {
             this.$store.dispatch('FETCH_NEWS', {input: 'news'})
         }else if(name ==="ask"){
             this.$store.dispatch('FETCH_NEWS', {input: 'ask'})
-        }else if(name ==="jobs"){
-            this.$store.dispatch('FETCH_NEWS', {input: 'jobs'})
-
         }
+        // else if(name ==="jobs"){
+        //     this.$store.dispatch('FETCH_NEWS', {input: 'jobs'})
+
+        // }
         else{
             console.log('something wrong')
         }

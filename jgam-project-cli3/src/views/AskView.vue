@@ -7,25 +7,14 @@
 <script>
 import ListItem from '../components/ListItem';
 import bus from '../utils/bus.js';
+import ListMixin from '../mixins/ListMixin';
 
 export default {
 
     components: {
         ListItem
     },
-    created(){
-        bus.$emit('start:spinner');
-        setTimeout(() => {
-            this.$store.dispatch('FETCH_NEWS', {input: 'ask'})
-                .then(() => {
-                    console.log('fetched!');
-                    bus.$emit('end:spinner');
-                    })
-                .catch(
-                    err => console.log(err)
-                );
-        }, 3000)
-    }
+    mixins: [ListMixin]
 }
 </script>
 

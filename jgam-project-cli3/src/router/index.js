@@ -3,7 +3,7 @@ import VueRouter from 'vue-router';
 
 //componenets
 // import AskView from '../views/AskView';
-// import JobsView from '../views/JobsView';
+import JobsView from '../views/JobsView';
 // import NewsView from '../views/NewsView';
 import UserView from '../views/UserView';
 import QuestionView from '../views/QuestionView';
@@ -35,7 +35,8 @@ const router = new VueRouter({
     },
     {
       path: '/jobs',
-      component: createListView('JobsView'),
+      //   component: createListView('JobsView'),
+      component: JobsView,
       name: 'jobs',
     },
     {
