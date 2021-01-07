@@ -33,13 +33,11 @@ const actions = {
       .then((response) => context.commit('SET_QUESTION', response.data))
       .catch((err) => console.log(err));
   },
-  FETCH_LIST({ commit }, pageName) {
-    return fetchListt(pageName)
-      .then((response) => {
-        commit('SET_LIST', response.data);
-        return response;
-      })
-      .catch((err) => console.log(err));
+  async FETCH_LIST({ commit }, pageName) {
+    const response = await fetchListt(pageName);
+
+    commit('SET_LIST', response.data);
+    return response;
   },
 };
 export default actions;
