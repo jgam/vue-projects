@@ -1,24 +1,39 @@
 <template>
   <div>
-      news
-      <div v-for="(user, index) in this.news" v-bind:key ="index">{{user}}</div>
+      <list-item></list-item>
   </div>
 </template>
 
 <script>
-import {mapGetters} from 'vuex';
+import ListItem from '../components/ListItem';
+// import bus from '../utils/bus.js';
+import ListMixin from '../mixins/ListMixin';
 
 export default {
-    created(){
-        this.$store.dispatch('FETCH_NEWS', {input: 'news'})
+    components: {
+        ListItem,
     },
-    computed:{
-        ...mapGetters(['news'])
-    },
-    
+    mixins: [ListMixin],
+    // created(){
+    //     bus.$emit('start:spinner');
+    //     setTimeout(() => {
+    //         this.$store.dispatch('FETCH_NEWS', {input: 'news'})
+    //             .then(() => {
+    //                 console.log('fetched!');
+    //                 bus.$emit('end:spinner');
+    //                 })
+    //             .catch(
+    //                 err => console.log(err)
+    //             );
+    //     }, 3000)
+        
+    // },
+
+
 }
 </script>
 
-<style>
+<style scoped>
+
 
 </style>

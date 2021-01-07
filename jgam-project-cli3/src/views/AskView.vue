@@ -1,22 +1,26 @@
 <template>
   <div>
-      ask
-      <div v-for="(ask, index) in this.asks" v-bind:key="index">{{ask}}</div>
+      <list-item></list-item>
   </div>
 </template>
 
 <script>
-import {mapGetters} from 'vuex';
+import ListItem from '../components/ListItem';
+// import bus from '../utils/bus.js';
+import ListMixin from '../mixins/ListMixin';
+
 export default {
-    created(){
-        this.$store.dispatch('FETCH_NEWS', {input: 'ask'})
+
+    components: {
+        ListItem
     },
-    computed:{
-        ...mapGetters(['asks'])
-    }
+    mixins: [ListMixin]
+    // mounted(){
+    //     bus.$emit('end:spinner');
+    // }
 }
 </script>
 
-<style>
+<style scoped>
 
 </style>

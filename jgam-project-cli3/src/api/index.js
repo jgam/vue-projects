@@ -7,3 +7,15 @@ const config = {
 export function fetchList(input) {
   return axios.get(`${config.baseUrl}${input}/1.json`);
 }
+
+export function fetchUser(username) {
+  return axios.get(`${config.baseUrl}user/${username}.json`);
+}
+
+export function fetchQuestion(id) {
+  return axios.get(`${config.baseUrl}item/${id}.json`);
+}
+
+export function fetchListt(pageName) {
+  return axios.get(`${config.baseUrl}${pageName}/1.json`);
+}
