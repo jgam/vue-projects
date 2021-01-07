@@ -14,5 +14,8 @@ const mutations = {
   SET_QUESTION(state, question) {
     state.question = question;
   },
+  SET_LIST(state, list) {
+    state.list = list;
+  },
 };
 export default mutations;

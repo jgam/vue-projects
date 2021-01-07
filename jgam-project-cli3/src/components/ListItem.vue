@@ -27,27 +27,33 @@
 export default {
     created(){
             const name = this.$route.name;
+            console.log(this.$route.name)
         if(name ==="news"){
             this.$store.dispatch('FETCH_NEWS', {input: 'news'})
         }else if(name ==="ask"){
             this.$store.dispatch('FETCH_NEWS', {input: 'ask'})
-        }else{
+        }else if(name ==="jobs"){
+            this.$store.dispatch('FETCH_NEWS', {input: 'jobs'})
+
+        }
+        else{
             console.log('something wrong')
         }
         
     },
     computed:{
         listItems(){
-            const name = this.$route.name;
-            console.log(this.$route)
-            if(name === "news"){
-                console.log('got in here list item')
-                return this.$store.state.news;
-            }else if(name ==="ask"){
-                return this.$store.state.asks
-            }else{
-                return []
-            }
+            return this.$store.state.list;
+            // const name = this.$route.name;
+            // console.log(this.$route)
+            // if(name === "news"){
+            //     console.log('got in here list item')
+            //     return this.$store.state.news;
+            // }else if(name ==="ask"){
+            //     return this.$store.state.asks
+            // }else{
+            //     return []
+            // }
         }
     },
     

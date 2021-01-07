@@ -2,11 +2,12 @@ import Vue from 'vue';
 import VueRouter from 'vue-router';
 
 //componenets
-import AskView from '../views/AskView';
-import JobsView from '../views/JobsView';
-import NewsView from '../views/NewsView';
+// import AskView from '../views/AskView';
+// import JobsView from '../views/JobsView';
+// import NewsView from '../views/NewsView';
 import UserView from '../views/UserView';
 import QuestionView from '../views/QuestionView';
+import createListView from '../views/CreateListView';
 
 Vue.use(VueRouter);
 
@@ -20,7 +21,7 @@ const router = new VueRouter({
     },
     {
       path: '/news',
-      component: NewsView,
+      component: createListView('NewsView'),
       name: 'news',
     },
     {
@@ -29,12 +30,13 @@ const router = new VueRouter({
     },
     {
       path: '/ask',
-      component: AskView,
+      component: createListView('AskView'),
       name: 'ask',
     },
     {
       path: '/jobs',
-      component: JobsView,
+      component: createListView('JobsView'),
+      name: 'jobs',
     },
     {
       path: '/item/:id',

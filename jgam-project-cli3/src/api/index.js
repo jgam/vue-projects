@@ -15,3 +15,7 @@ export function fetchUser(username) {
 export function fetchQuestion(id) {
   return axios.get(`${config.baseUrl}item/${id}.json`);
 }
+
+export function fetchListt(pageName) {
+  return axios.get(`${config.baseUrl}${pageName}/1.json`);
+}

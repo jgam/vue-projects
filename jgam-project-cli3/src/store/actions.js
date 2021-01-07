@@ -1,4 +1,4 @@
-import { fetchList, fetchQuestion, fetchUser } from '../api/index';
+import { fetchList, fetchQuestion, fetchUser, fetchListt } from '../api/index';
 
 const actions = {
   FETCH_NEWS(context, { input }) {
@@ -31,6 +31,11 @@ const actions = {
   FETCH_QUESTION(context, { id }) {
     fetchQuestion(id)
       .then((response) => context.commit('SET_QUESTION', response.data))
+      .catch((err) => console.log(err));
+  },
+  FETCH_LIST({ commit }, pageName) {
+    fetchListt(pageName)
+      .then(({ data }) => commit('SET_LIST', data))
       .catch((err) => console.log(err));
   },
 };
