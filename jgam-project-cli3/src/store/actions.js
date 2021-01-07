@@ -24,18 +24,21 @@ const actions = {
     });
   },
   FETCH_USER(context, { input }) {
-    fetchUser(input)
+    return fetchUser(input)
       .then((response) => context.commit('SET_USER', response.data))
       .catch((err) => console.log(err));
   },
   FETCH_QUESTION(context, { id }) {
-    fetchQuestion(id)
+    return fetchQuestion(id)
       .then((response) => context.commit('SET_QUESTION', response.data))
       .catch((err) => console.log(err));
   },
   FETCH_LIST({ commit }, pageName) {
-    fetchListt(pageName)
-      .then(({ data }) => commit('SET_LIST', data))
+    return fetchListt(pageName)
+      .then((response) => {
+        commit('SET_LIST', response.data);
+        return response;
+      })
       .catch((err) => console.log(err));
   },
 };
