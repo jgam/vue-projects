@@ -3,55 +3,37 @@
       <section>
           <!-- question detail -->
           <div>
-              <div class="user-container">
-                  <div class="icon">
-                    <i class="fas fa-user"></i>
-                  </div>
-                  <div>
-                    <router-link :to="`/news/${fetchedQuestion.user}`">
-                      {{fetchedQuestion.user}}
-                    </router-link>
-                    <div> 
-                        {{fetchedQuestion.time_ago}}
-                    </div>
-                </div>
-              </div>
+              <user-profile></user-profile>
               
-              <h2>{{fetchedQuestion.title}}</h2>
+              <h2>{{question.title}}</h2>
           </div>
       </section>
       <section>
           <!-- question comments -->
       </section>
-      <div v-html="textHTML"></div>
+      <div v-html="question.content"></div>
   </div>
 </template>
 
 <script>
-import {mapGetters} from 'vuex';
+import UserProfile from '../components/UserProfile.vue';
 
 export default {
     computed: {
-        textHTML: function(){
-            return this.$store.state.question.content
+        question: function(){
+            return this.$store.state.question
         },
-        ...mapGetters(['fetchedQuestion']),
     },
     created(){
         this.$store.dispatch('FETCH_QUESTION', {id: this.$route.params.id})
+    },
+    components: {
+        UserProfile
     }
 
 }
 </script>
 
-<style scoped>
-.user-container{
-    display: flex;
-    align-items:center;
-}
-.user-container .icon{
-    font-size: 2.5rem;
-    padding: 10px;
-}
 
+<style scoped>
 </style>
