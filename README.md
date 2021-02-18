@@ -2,7 +2,7 @@
 
 ## Refactoring
 
-### removing duplicate logics using HOC(component)
+### removing duplicate logics using HOC(component)))
 
 **Previously**
 
